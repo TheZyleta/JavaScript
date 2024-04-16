@@ -11,7 +11,6 @@ init();
 
 //generator
 function generateAndSaveObject(array,x,y,z,n,rlx,rly) {
-  // Generate an object
   const obj = {
     id: n,
     data_x: x,
@@ -21,28 +20,17 @@ function generateAndSaveObject(array,x,y,z,n,rlx,rly) {
 	rly: rly,
 	innerHTML: 0
   };
-
-  // Save the object in the array
   array.push(obj);
-
-  // Return the object
   return obj;
 }
 const allHex = [];
-//dom creator
 function crDOM(){
-// Loop through the objectArray
-for (const object of allHex) {
-  // Create a new div element
-  const div = document.createElement('div');
-  // Set the innerHTML of the div to the name and age of the object
-  div.innerHTML = `${object.innerHTML}`;
-  // Set the id attribute of the div to the id of the object
-  div.setAttribute('id', object.id);
-
-  // Append the div to the body of the document
-  document.body.appendChild(div);
-}
+  for (const object of allHex) {
+	const div = document.createElement('div');
+	div.innerHTML = `${object.innerHTML}`;
+	div.setAttribute('id', object.id);
+  	document.body.appendChild(div);
+  }
 }
 
 
@@ -117,18 +105,14 @@ function generateBase(rad){  //generuje baze na podstawie inputu użytkownika co
 var rs=parseInt(prompt('radius?','3'));
 
 generateSite(rs);
-
 generateBase(rs);                   
 
-
-
-//eqweqwewqe21e12e2ee2
 var total= site.reduce((a, b) => a + b, 0);
 if (rs>4){
 var scl=600/site[(site.length-1)/2+1];
 }
 else{var scl=100;}
-//ssdsdsdsddsdsdsdsdsd
+
 var taEA=[],taQD=[],taWS=[]
 function crMovY() {
 	var li=0;
@@ -156,7 +140,7 @@ function mY(){
 	mmemm=[].concat(...mem);
 }
 
-//dwfwfwfwf
+
 function crMovZ() {
 	var li=0;
    	for(var i =(site.length-1)/2;i>=-1*((site.length-1)/2);i--){
@@ -183,9 +167,7 @@ function mZ(){
 	taQD=kf;
 	mmemm=[].concat(...mem);
 } 
-//32wdwqfqf 
 
-//dwfwfwfwf
 function crMovX() {
 	var li=0,kf=[];
    	for(var i =0;i<site.length;i++){
@@ -370,110 +352,75 @@ function combineF(){
 		        }
 			}
 		}
-		g=[].concat(...newRow);
-		
+		g=[].concat(...newRow);		
 }		
-
-
-
-
-
 	document.addEventListener('keyup', control)
 
-	function keyE() {
-
-moveE();
-combineB();
-
-updateInnerHtml();
-
-moveE();
-updateInnerHtml();
-
-drawNew();
-generate();
+function keyE() {
+	moveE();
+	combineB();
+	updateInnerHtml();
+	moveE();
+	updateInnerHtml();
+	drawNew();
+	generate();
 	updateDOM();
-
-	}
-	function keyA(){
-		
-moveA();
-combineF();
-
-updateInnerHtml();
-
-moveA();
-updateInnerHtml();
-
-drawNew();
-generate();
+}
+function keyA(){	
+	moveA();
+	combineF();
+	updateInnerHtml();
+	moveA();
+	updateInnerHtml();
+	drawNew();
+	generate();
 	updateDOM();
-	}
+}
 	
 function keyQ(){
-		
-moveQ();
-combineF();
-
-updateInnerHtml();
-
-moveQ();
-updateInnerHtml();
-
-drawNew();
-generate();
-	updateDOM();
-	}
-function keyD(){
-		
-    moveD();
-	combineB();
-
+	moveQ();
+	combineF();
 	updateInnerHtml();
-
+	moveQ();
+	updateInnerHtml();
+	drawNew();
+	generate();
+	updateDOM();
+}
+function keyD(){	
+   	moveD();
+	combineB();
+	updateInnerHtml();
 	moveD();
 	updateInnerHtml();
-
-	drawNew();
-	generate
-		updateDOM();
-}
-
-
-function keyW(){
-		
-moveW();
-combineF();
-
-updateInnerHtml();
-
-moveW();
-updateInnerHtml();
-
-drawNew();
-generate();
-	updateDOM();
-	}
-	
-	function keyS(){
-		
-    moveS();
-	combineB();
-
-	updateInnerHtml();
-
-	moveS();
-	updateInnerHtml();
-
 	drawNew();
 	generate();
 	updateDOM();
 }
 
 
-/*function drawHexagonMap()}
-  
-}*/
+function keyW(){		
+	moveW();
+	combineF();
+	updateInnerHtml();
+	moveW();
+	updateInnerHtml();
+	drawNew();
+	generate();
+	updateDOM();
+}
+	
+function keyS(){
+	moveS();
+	combineB();
+	updateInnerHtml();
+	moveS();
+	updateInnerHtml();
+	drawNew();
+	generate();
+	updateDOM();
+}
+
 function drawNew(){
 
 	for(var i =0;i<allHex.length;i++){
@@ -491,25 +438,14 @@ function updateInnerHtml(){
 
 
 function updateDOM(){
-	// Find all div elements
-const divElements = document.querySelectorAll('div');
-
-// Loop through the div elements
-divElements.forEach((div) => {
-  // Find the corresponding object in the objectArray
-  const object = allHex.find((obj) => obj.id === parseInt(div.id));
-  if (object) {
-    // Set the innerHTML of the div to the innerHTML of the object
-    div.innerHTML = object.innerHTML;
-  }
-});
+  const divElements = document.querySelectorAll('div');
+  divElements.forEach((div) => {
+  	const object = allHex.find((obj) => obj.id === parseInt(div.id));
+  	if (object) {div.innerHTML = object.innerHTML;}
+  });
 }
 
-
-
 crBoard()
-
-
 generate();
 generate();
 crDOM();
