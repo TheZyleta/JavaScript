@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'KGRed';
+    src: url('Fonts/KGRedHands.woff2') format('woff2');
+}
+
+body, html {
+    font-family: 'KGRed';
+    height: 100%;
+    
+}
+body {
+    background-image: url('backG.jpg'); 
+    background-size: 100% 100vh; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+.container {
+    height:100%;         
+    display: flex;
+    justify-content: center;
+    margin-top: 5em;
+}
+#highS{
+    font-size: 40px;
+    font-weight: bold;
+    color: rgba(33,1,50,255);
+}
+
